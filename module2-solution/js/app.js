@@ -11,9 +11,6 @@ function ToBuyShoppingController(ShoppingListCheckOffService) {
   var itemsToBuy = this;
   itemsToBuy.items = ShoppingListCheckOffService.getToBuyItems();
 
-  itemsToBuy.itemBought = { name: "test",     quantity: 100 };
-  itemsToBuy.message = "";
-
   itemsToBuy.moveItem = function (key, item) {
     ShoppingListCheckOffService.moveItem(key, item);
   };
@@ -25,7 +22,6 @@ function AlreadyBoughtShoppingController(ShoppingListCheckOffService) {
   var boughtCtrl = this;
 
   boughtCtrl.items = ShoppingListCheckOffService.getBoughtItems();
-  boughtCtrl.message = "";
 
 }
 
@@ -42,8 +38,6 @@ function ShoppingListCheckOffService() {
   ];
   // List of already bought items
   var boughtItems = [];
-  var toBuyMessage = "Everything is bought!";
-  var boughtMessage = "Nothing bought yet."
 
   service.moveItem = function(key, item) {
     boughtItems.push(item);
