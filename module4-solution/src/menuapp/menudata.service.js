@@ -6,10 +6,12 @@
         .constant('ApiPath', 'https://davids-restaurant.herokuapp.com');
 
     MenuDataService.$inject = ['$http', 'ApiPath'];
+
     function MenuDataService($http, apiPath) {
+
         var service = this;
 
-        service.getAllCategories = function () {
+        service.getAllCategories = function() {
             return $http({
                 method: 'GET',
                 url: apiPath + '/categories.json'
@@ -18,7 +20,7 @@
             });
         }
 
-        service.getItemsForCategory = function (categoryShortName) {
+        service.getItemsForCategory = function(categoryShortName) {
 
             return $http({
                 method: 'GET',
